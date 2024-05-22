@@ -4,6 +4,10 @@ import { useEffect, useState } from "react"
 import styles from './index.module.css'
 import Loading from "../../components/Loading"
 
+//font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+
 export default function Users() {
   const [users, setUsers] = useState([])
   const [loading, setLoading] = useState(false)
@@ -59,10 +63,15 @@ export default function Users() {
               <div className={styles.userBox}>
                 <h3>{user.name.first} {user.name.last}</h3>
                 <div className={styles.userInfo}>
-                  <span>
+                  <span className={styles.gender}>
+                    {user.gender == "male" ?
+                      <FontAwesomeIcon icon={faMars} className={styles.male} />
+                    : <FontAwesomeIcon icon={faVenus} className={styles.female}/>
+                    }
                     <p>{user.gender}</p>
                   </span>
-                  <span>
+                  <span className={styles.birthday}>
+                    <FontAwesomeIcon icon={faCakeCandles} className={styles.cake}/>
                     <p>{formatDate(user.dob.date)}</p>
                   </span>
                 </div>
