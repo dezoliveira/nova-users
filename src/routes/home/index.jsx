@@ -1,7 +1,4 @@
-import { Suspense } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../../components/Loading";
-
 import styles from './index.module.css'
 
 export default function Home() {
@@ -16,13 +13,11 @@ export default function Home() {
         <strong> usuario12434</strong><br/>
         O que deseja fazer ?
       </h3>
-      <Suspense fallback={<Loading />}>
-        <Link to="/users">
-          <button className={styles.btnPrimary}>
-            Listar Usuários
-          </button>
-        </Link>
-      </Suspense>
+      <Link to="/users">
+        <button className={styles.btnPrimary}>
+          Listar Usuários
+        </button>
+      </Link>
     </div>
   )
 }
