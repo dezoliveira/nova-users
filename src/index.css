@@ -9,8 +9,13 @@ main {
   height: 100vh;
 }
 
+ul {
+  padding: 0;
+}
+
 li {
   list-style: none;
+  padding: 10px;
 }
 
 a {
@@ -18,11 +23,11 @@ a {
   color: unset;
 }
 
-.card {
-  display: flex;
-}
-
 html {
   background-color: #22d3ee;
   color: #0a0a0a;
 }
+
+/* h3 {
+  margin: 0;
+} */
