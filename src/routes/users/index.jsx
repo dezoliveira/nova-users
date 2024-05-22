@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 // import { loadUsers } from "../../hooks/loadUsers"
 import styles from './index.module.css'
 import Loading from "../../components/Loading"
+import Modal from "../../components/Modal"
 
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,7 +11,9 @@ import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icon
 
 export default function Users() {
   const [users, setUsers] = useState([])
+  const [userData, setUserData] = useState([])
   const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     loadUsers()
@@ -46,41 +49,64 @@ export default function Users() {
     return newDate
   }
 
+  const handleModal = (e, user) => {
+    setShowModal(true)
+    e.preventDefault()
+    setUserData(user)
+  }
+
+  const closeModal = (value) => {
+    setShowModal(value)
+  }
+
   return (
-    <ul>
+    <>
       {
-        users && users.map((user) => (
-          <li key={user.id.value ? user.id.value : user.email}>
-            <div className={styles.card}>
-              <div className={styles.logo}>
-                <img
-                  alt="user-profile"
-                  src={user.picture.medium}
-                  width="80"
-                  height="80"
-                />
-              </div >
-              <div className={styles.userBox}>
-                <h3>{user.name.first} {user.name.last}</h3>
-                <div className={styles.userInfo}>
-                  <span className={styles.gender}>
-                    {user.gender == "male" ?
-                      <FontAwesomeIcon icon={faMars} className={styles.male} />
-                    : <FontAwesomeIcon icon={faVenus} className={styles.female}/>
-                    }
-                    <p>{user.gender}</p>
-                  </span>
-                  <span className={styles.birthday}>
-                    <FontAwesomeIcon icon={faCakeCandles} className={styles.cake}/>
-                    <p>{formatDate(user.dob.date)}</p>
-                  </span>
+        showModal && (
+          <Modal
+            data={userData}
+            closeModal={closeModal}
+          >
+            
+          </Modal>
+        )
+      }
+      <ul>
+        {
+          users && users.map((user) => (
+            <li key={user.id.value ? user.id.value : user.email}>
+              <div className={styles.card} onClick={(e) => handleModal(e, user)}>
+                <div className={styles.logo}>
+                  <img
+                    alt="user-profile"
+                    src={user.picture.medium}
+                    width="80"
+                    height="80"
+                  />
+                </div >
+                <div className={styles.userBox}>
+                  <h3>{user.name.first} {user.name.last}</h3>
+                  <div className={styles.userInfo}>
+                    <span className={styles.gender}>
+                      {user.gender == "male" ?
+                        <FontAwesomeIcon icon={faMars} className={styles.male} />
+                      : <FontAwesomeIcon icon={faVenus} className={styles.female}/>
+                      }
+                      <p>{user.gender}</p>
+                    </span>
+                    <span className={styles.birthday}>
+                      <FontAwesomeIcon icon={faCakeCandles} className={styles.cake}/>
+                      <p>{formatDate(user.dob.date)}</p>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
-        ))
-      }
-      {loading && <><Loading>Loading...</Loading></>}
-    </ul>
+            </li>
+          ))
+        }
+        {loading && <><Loading>Loading...</Loading></>}
+      </ul>
+    
+    </>
   )
 }

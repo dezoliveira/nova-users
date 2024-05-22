@@ -1,0 +1,28 @@
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: #0a0a0a41;
+  overflow: hidden;
+}
+
+.modal {
+  position: relative;
+  width: 80%;
+  height: 80vh;
+  padding: 25px;
+  z-index: 10;
+  background-color: #f8fafc;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
