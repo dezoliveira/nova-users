@@ -8,9 +8,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Home from './routes/Home';
-import Users from './routes/Users';
-import Contact from './routes/Contact';
+import Home from './routes/home/index';
+import Users from './routes/users/index';
+import Contact from './routes/contact/index';
 
 const router = createBrowserRouter([
   {

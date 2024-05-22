@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../components/Loading";
+import Loading from "../../components/Loading";
 
 export default function Home() {
   return (
