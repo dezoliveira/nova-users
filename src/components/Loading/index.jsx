@@ -1,5 +1,15 @@
+import styles from './index.module.css'
+
 export default function Loading() {
   return (
-    <h1>loading</h1>
+    <div className={styles.container}>
+      <img
+        className={styles.loading}
+        alt="logo"
+        src={"/src/assets/images/logo.jpeg"}
+        width={"200"}
+        height={"200"}
+      />
+    </div>
   )
 }

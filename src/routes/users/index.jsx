@@ -2,16 +2,18 @@
 import { useEffect, useState } from "react"
 // import { loadUsers } from "../../hooks/loadUsers"
 import styles from './index.module.css'
+import Loading from "../../components/Loading"
 
 export default function Users() {
   const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     loadUsers()
-    // formatDate()
-  }, [users])
+  }, [])
 
   const loadUsers = async() => {
+    setLoading(true)
     try {    
       await new Promise(resolve => setTimeout(resolve, 3000))
       
@@ -26,7 +28,7 @@ export default function Users() {
       const users = data.results
 
       console.log(users)
-      
+      setLoading(false)
       setUsers(users)
   
     } catch (error) {
@@ -44,7 +46,7 @@ export default function Users() {
     <ul>
       {
         users && users.map((user) => (
-          <li key={user.id.value !== null}>
+          <li key={user.id.value ? user.id.value : user.email}>
             <div className={styles.card}>
               <div className={styles.logo}>
                 <img
@@ -69,7 +71,7 @@ export default function Users() {
           </li>
         ))
       }
-      {!users && <><h1>Loading...</h1></>}
+      {loading && <><Loading>Loading...</Loading></>}
     </ul>
   )
 }
