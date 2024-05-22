@@ -50,13 +50,16 @@ export default function Users() {
   }
 
   const handleModal = (e, user) => {
-    setShowModal(true)
     e.preventDefault()
     setUserData(user)
+
+    document.body.style.overflowY = 'hidden'
+    setShowModal(true)
   }
 
   const closeModal = (value) => {
     setShowModal(value)
+    document.body.style.overflowY = 'auto'
   }
 
   return (
