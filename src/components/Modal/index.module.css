@@ -1,0 +1,81 @@
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  /* background-color: #0a0a0a41; */
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.modal {
+  position: relative;
+  width: 90%;
+  height: 80vh;
+  padding: 85px 25px;
+  z-index: 10;
+  background-color: #f8fafc;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15)
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.userBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.male {
+  color: blue;
+}
+
+.female {
+  color: red;
+}
+
+
+.cake {
+  color: brown;
+}
+
+.mail {
+  color: blueviolet;
+}
+
+.location {
+  color: tomato;
+}
+
+.idCard {
+  color:darkblue;
+}
