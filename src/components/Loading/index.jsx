@@ -6,7 +6,7 @@ export default function Loading() {
       <img
         className={styles.loading}
         alt="logo"
-        src={"/src/assets/images/logo.jpeg"}
+        src={"../../assets/images/logo.jpeg"}
         width={"200"}
         height={"200"}
       />
