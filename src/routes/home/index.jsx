@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <img
-        src="../../assets/images/logo.jpeg"
+        src="/public/images/logo.jpeg"
         width={200}
         height={200}
       />
