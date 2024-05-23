@@ -5,6 +5,8 @@ import styles from './index.module.css'
 import Loading from "../../components/Loading"
 import Modal from "../../components/Modal"
 
+import formatDate from "../../utils"
+
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
@@ -41,12 +43,6 @@ export default function Users() {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  const formatDate = (date) => {
-    let newDate = new Date(date)
-    newDate = newDate.toLocaleDateString()
-    return newDate
   }
 
   const handleModal = (e, user) => {

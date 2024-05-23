@@ -1,7 +1,25 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// styles
 import styles from './index.module.css'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
+// font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faAddressCard,
+  faCakeCandles,
+  faEnvelopeCircleCheck,
+  faFlag,
+  faLocation,
+  faMars,
+  faMobile,
+  faTimesCircle,
+  faVenus 
+} from '@fortawesome/free-solid-svg-icons'
+
+// react
 import { useRef } from 'react'
+
+// utils
+import formatDate from '../../utils'
 
 export default function Modal({ data, closeModal }) {
   const user = data
@@ -27,40 +45,66 @@ export default function Modal({ data, closeModal }) {
         <span className={styles.closeButton} onClick={handleClose}>
           <FontAwesomeIcon fontSize={38} icon={faTimesCircle} />
         </span>
-        <div>
-          <img
-            alt="details_img"
-            src={user.picture.medium}
-            width="40"
-            height="40"
-          />
-        </div >
-        <span>
-          <h1>{user.name.first} {user.name.last}</h1>
-        </span>
-        <span>
-          <small>{user.email}</small>
-        </span>
-        <span>
-          <h4>{user.gender}</h4>
-        </span>
-        <span>
-          <h5>{user.dob.date}</h5>
-        </span>
-        <span>
-          <h5>{user.phone}</h5>
-        </span>
-        <span>
-          <h5>{user.nat}</h5>
-        </span>
-        <span>
-          <h5>
-            {user.location.street.name}, {user.location.street.number}
-          </h5>
-        </span>
-        <span>
-          <h5>{user.id.value}</h5>
-        </span>
+        <div className={styles.modalBody}>
+          <div>
+            <img
+              alt="details_img"
+              src={user.picture.large}
+              width="200"
+              height="200"
+            />
+          </div >
+          <span>
+            <h1>{user.name.first} {user.name.last}</h1>
+          </span>
+
+          {/* mail */}
+          <span className={styles.iconBox}>
+            <FontAwesomeIcon icon={faEnvelopeCircleCheck} className={styles.mail}/>
+            <small>{user.email}</small>
+          </span>
+
+          {/* gender and dob */}
+          <div className={styles.userInfo}>
+            <span className={styles.iconBox}>
+              {user.gender == "male" ?
+                <FontAwesomeIcon icon={faMars}  />
+              : <FontAwesomeIcon icon={faVenus} />
+              }
+              <p>{user.gender}</p>
+            </span>
+            <span className={styles.iconBox}>
+              <FontAwesomeIcon icon={faCakeCandles} className={styles.cake}/>
+              <p>{formatDate(user.dob.date)}</p>
+            </span>
+          </div>
+
+          {/* phone and flag */}
+          <div className={styles.userInfo}>
+            <span className={styles.iconBox}>
+              <FontAwesomeIcon icon={faMobile} />
+              <p>{user.phone}</p>
+            </span>
+            <span className={styles.iconBox}>
+              <FontAwesomeIcon icon={faFlag} />
+              <p>{user.nat}</p>
+            </span>
+          </div>
+
+          {/* street */}
+          <span className={styles.iconBox}>
+            <FontAwesomeIcon icon={faLocation} className={styles.location}/>
+            <p>
+              {user.location.street.name}, {user.location.street.number}
+            </p>
+          </span>
+
+          {/* id */}
+          <span className={styles.iconBox}>
+            <FontAwesomeIcon icon={faAddressCard} className={styles.idCard}/>
+            <p><b>{user.id.name}: </b>{user.id.value ? user.id.value : "N/A"}</p>
+          </span>
+        </div>
       </div>
     </div>
   )

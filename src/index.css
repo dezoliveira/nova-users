@@ -2,6 +2,7 @@
 
 * {
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 main {
@@ -27,7 +28,3 @@ html {
   background-color: #22d3ee;
   color: #0a0a0a;
 }
-
-/* h3 {
-  margin: 0;
-} */
