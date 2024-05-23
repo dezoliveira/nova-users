@@ -1,4 +1,5 @@
 import styles from './index.module.css'
+import logo from '/src/assets/images/logo.jpeg'
 
 export default function Loading() {
   return (
@@ -6,7 +7,7 @@ export default function Loading() {
       <img
         className={styles.loading}
         alt="logo"
-        src={"/public/images/logo.jpeg"}
+        src={logo}
         width={"200"}
         height={"200"}
       />

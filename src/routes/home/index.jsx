@@ -1,11 +1,12 @@
 import styles from './index.module.css'
 import { Link } from "react-router-dom";
+import logo from '/src/assets/images/logo.jpeg'
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <img
-        src="/public/images/logo.jpeg"
+        src={logo}
         width={200}
         height={200}
       />

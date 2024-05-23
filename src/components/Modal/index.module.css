@@ -16,8 +16,8 @@
 .modal {
   position: relative;
   width: 90%;
-  height: 80vh;
-  padding: 85px 25px;
+  height: 80%;
+  padding: 65px 25px;
   z-index: 10;
   background-color: #f8fafc;
   border-radius: 15px;
@@ -46,6 +46,10 @@
   display: flex;
   justify-content: space-between;
   gap: 15px;
+}
+
+.userName {
+  text-align: center;
 }
 
 .iconBox {

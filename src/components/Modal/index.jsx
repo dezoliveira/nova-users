@@ -54,7 +54,7 @@ export default function Modal({ data, closeModal }) {
               height="200"
             />
           </div >
-          <span>
+          <span className={styles.userName}>
             <h1>{user.name.first} {user.name.last}</h1>
           </span>
 
