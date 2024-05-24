@@ -10,6 +10,7 @@ import formatDate from "../../utils"
 //font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import Card from "../../components/Card"
 
 export default function Users() {
   const [users, setUsers] = useState([])
@@ -62,11 +63,9 @@ export default function Users() {
     <>
       {
         showModal && (
-          <Modal
-            data={userData}
-            closeModal={closeModal}
+          <Modal closeModal={closeModal}
           >
-            
+            <Card data={userData}/>
           </Modal>
         )
       }
