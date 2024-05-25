@@ -4,7 +4,7 @@ import logo from '/src/assets/images/logo.jpeg'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
       <img
         src={logo}
         width={200}
@@ -19,6 +19,6 @@ export default function Home() {
           Listar Usuários
         </button>
       </Link>
-    </div>
+    </main>
   )
 }

@@ -8,6 +8,7 @@ import formatDate from "../../utils"
 // font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import SearchBar from "../SearchBar"
 
 export default function UsersList({ handleModal }) {
   const [users, setUsers] = useState([])
@@ -47,7 +48,9 @@ export default function UsersList({ handleModal }) {
   }
   
   return (
-    <ul>
+    <>
+      <SearchBar />
+      <ul>
         {
           users && users.map((user) => (
             <li key={user.id.value ? user.id.value : user.email}>
@@ -82,5 +85,6 @@ export default function UsersList({ handleModal }) {
         }
         {loading && <><Loading>Loading...</Loading></>}
       </ul>
+    </>
   )
 }
