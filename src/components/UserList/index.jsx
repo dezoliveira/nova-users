@@ -12,6 +12,7 @@ import SearchBar from "../SearchBar"
 
 export default function UsersList({ handleModal }) {
   const [users, setUsers] = useState([])
+  const [filteredUsers, setFilteredUsers] = useState([])
   // const [userData, setUserData] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -34,9 +35,9 @@ export default function UsersList({ handleModal }) {
 
       const users = data.results
 
-      console.log(users)
       setLoading(false)
       setUsers(users)
+      setFilteredUsers(users)
   
     } catch (error) {
       console.log(error)
@@ -46,13 +47,29 @@ export default function UsersList({ handleModal }) {
   const toggleModal = (e, user) => {
     handleModal(e, user)
   }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    
+    const newUsers = users.filter((user) => {
+      const fullName = `${user.name.first} ${user.name.last}`
+
+      return fullName.includes(e.target.value)
+    })
+
+    setFilteredUsers(newUsers)
+
+  }
   
   return (
     <>
-      <SearchBar />
+      <SearchBar
+        handleSearch={handleSearch}
+        value={filteredUsers}
+      />
       <ul>
         {
-          users && users.map((user) => (
+          filteredUsers && filteredUsers.map((user) => (
             <li key={user.id.value ? user.id.value : user.email}>
               <div className={styles.card} onClick={(e) => toggleModal(e, user)}>
                 <div className={styles.logo}>
