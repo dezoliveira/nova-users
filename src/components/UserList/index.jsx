@@ -13,19 +13,19 @@ import SearchBar from "../SearchBar"
 export default function UsersList({ handleModal }) {
   const [users, setUsers] = useState([])
   const [filteredUsers, setFilteredUsers] = useState([])
-  // const [userData, setUserData] = useState([])
+  const [results, setResults] = useState(20)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     loadUsers()
-  }, [])
+  }, [results])
 
   const loadUsers = async() => {
     setLoading(true)
     try {    
       await new Promise(resolve => setTimeout(resolve, 3000))
       
-      const res = await fetch("https://randomuser.me/api/?results=20")
+      const res = await fetch(`https://randomuser.me/api/?results=${results}`)
   
       if (!res.ok) {
         console.log('error')
@@ -60,6 +60,15 @@ export default function UsersList({ handleModal }) {
     setFilteredUsers(newUsers)
 
   }
+
+  const handleScroll = (e) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight
+
+    if (bottom) {
+      setResults(results + 20)
+      console.log(setResults)
+    }
+  }
   
   return (
     <>
@@ -67,10 +76,10 @@ export default function UsersList({ handleModal }) {
         handleSearch={handleSearch}
         value={filteredUsers}
       />
-      <ul>
+      <ul onScroll={handleScroll}>
         {
           filteredUsers && filteredUsers.map((user) => (
-            <li key={user.id.value ? user.id.value : user.email}>
+            <li key={user.id.value ? user.id.value : user.email + user.name.first}>
               <div className={styles.card} onClick={(e) => toggleModal(e, user)}>
                 <div className={styles.logo}>
                   <img
@@ -100,7 +109,8 @@ export default function UsersList({ handleModal }) {
             </li>
           ))
         }
-        {loading && <><Loading>Loading...</Loading></>}
+        {/* {loading && <><Loading>Loading...</Loading></>} */}
+        {loading && <><h1>Carregando mais...</h1></>}
       </ul>
     </>
   )
