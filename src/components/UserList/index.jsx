@@ -37,6 +37,8 @@ export default function UsersList({ handleModal }) {
       setSpinner(false)
       setUsers(users)
       setFilteredUsers(users)
+
+      console.log(users)
   
     } catch (error) {
       console.log(error)
@@ -78,7 +80,7 @@ export default function UsersList({ handleModal }) {
       <ul onScroll={handleScroll}>
         {
           filteredUsers && filteredUsers.map((user) => (
-            <li key={user.id.value ? user.id.value : user.email + user.name.first}>
+            <li key={user.login.uuid}>
               <div className={styles.card} onClick={(e) => toggleModal(e, user)}>
                 <div className={styles.logo}>
                   <img
