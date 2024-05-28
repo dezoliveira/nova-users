@@ -29,3 +29,15 @@ html {
   background-color: #22d3ee;
   color: #0a0a0a;
 }
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader img {
+  width: 200px;
+  height: 200px;
+}
