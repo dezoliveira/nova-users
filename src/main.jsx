@@ -11,14 +11,12 @@ import {
 
 import Home from './routes/home/index';
 import Users from './routes/users/index';
-import Contact from './routes/contact/index';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Home />} />
       <Route path="/users" element={<Users />} />
-      <Route path="/contact" element={<Contact />} />
     </Route>
   )
 );
