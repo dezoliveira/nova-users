@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from './index.module.css'
-import Loading from "../../components/Loading"
+// import Loading from "../../components/Loading"
 
 // utils
 import formatDate from "../../utils"
@@ -9,22 +9,21 @@ import formatDate from "../../utils"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 import SearchBar from "../SearchBar"
+import Spinner from "../Spinner"
 
 export default function UsersList({ handleModal }) {
   const [users, setUsers] = useState([])
   const [filteredUsers, setFilteredUsers] = useState([])
   const [results, setResults] = useState(20)
-  const [loading, setLoading] = useState(false)
+  const [spinner, setSpinner] = useState(false)
 
   useEffect(() => {
     loadUsers()
   }, [results])
 
   const loadUsers = async() => {
-    setLoading(true)
+    // setLoading(true)
     try {    
-      await new Promise(resolve => setTimeout(resolve, 3000))
-      
       const res = await fetch(`https://randomuser.me/api/?results=${results}`)
   
       if (!res.ok) {
@@ -35,7 +34,7 @@ export default function UsersList({ handleModal }) {
 
       const users = data.results
 
-      setLoading(false)
+      setSpinner(false)
       setUsers(users)
       setFilteredUsers(users)
   
@@ -66,7 +65,7 @@ export default function UsersList({ handleModal }) {
 
     if (bottom) {
       setResults(results + 20)
-      console.log(setResults)
+      setSpinner(true)
     }
   }
   
@@ -109,8 +108,7 @@ export default function UsersList({ handleModal }) {
             </li>
           ))
         }
-        {/* {loading && <><Loading>Loading...</Loading></>} */}
-        {loading && <><h1>Carregando mais...</h1></>}
+        {spinner && <><Spinner text={"Carregando Mais"}/></>}
       </ul>
     </>
   )
