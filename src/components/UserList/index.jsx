@@ -41,8 +41,6 @@ export default function UsersList({ handleModal }) {
       setSpinner(false)
       setUsers(users)
       setFilteredUsers(users)
-
-      console.log(users)
   
     } catch (error) {
       console.log(error)
