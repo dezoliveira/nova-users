@@ -20,6 +20,7 @@ export default function Users() {
     setShowModal(true)
   }
 
+  // close modal
   const closeModal = (value) => {
     setShowModal(value)
 

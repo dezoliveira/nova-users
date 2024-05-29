@@ -25,7 +25,6 @@ export default function Card({ data }) {
 
   return (
     <div className={styles.card}>
-
       {/* user image */}
       <div>
         <img
