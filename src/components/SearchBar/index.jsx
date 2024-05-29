@@ -1,9 +1,12 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// styles
 import styles from './index.module.css'
+
+// font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 export default function SearchBar({ filteredUsers, handleSearch }) {
-
+  
   return (
     <div className={styles.container}>
       <span className={styles.searchBox}>

@@ -11,11 +11,13 @@ import { useRef } from 'react'
 export default function Modal({ closeModal, children }) {
   const modalRef = useRef()
 
+  // close Modal
   const handleClose = (e) => {
     e.preventDefault()
     closeModal(false)
   }
 
+  // handle click outside modal
   const handleClickOutside = (event) => {
     event.preventDefault()
     console.log(modalRef.current)

@@ -1,3 +1,4 @@
+// styles
 import styles from './index.module.css'
 
 // font awesome
@@ -15,6 +16,8 @@ import {
 
 // utils
 import formatDate from '../../utils'
+
+// react
 import { useState } from 'react'
 
 export default function Card({ data }) {
@@ -22,6 +25,8 @@ export default function Card({ data }) {
 
   return (
     <div className={styles.card}>
+
+      {/* user image */}
       <div>
         <img
           alt="details_img"
@@ -30,6 +35,8 @@ export default function Card({ data }) {
           height="200"
         />
       </div >
+
+      {/* username */}
       <span className={styles.userName}>
         <h1>{user.name.first} {user.name.last}</h1>
       </span>

@@ -1,3 +1,4 @@
+// styles
 import styles from './index.module.css'
 
 export default function Spinner({ text }) {

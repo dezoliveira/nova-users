@@ -1,5 +1,10 @@
+// styles
 import styles from './index.module.css'
+
+// react
 import { Link } from "react-router-dom";
+
+// logo
 import logo from '/src/assets/images/logo.jpeg'
 
 export default function Home() {

@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react"
+// styles
 import styles from './index.module.css'
-// import Loading from "../../components/Loading"
-
-// utils
-import formatDate from "../../utils"
 
 // font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+
+// utils
+import formatDate from "../../utils"
+
+// react
+import { useEffect, useState } from "react"
+
+// components
 import SearchBar from "../SearchBar"
 import Spinner from "../Spinner"
 
@@ -21,8 +25,8 @@ export default function UsersList({ handleModal }) {
     loadUsers()
   }, [results])
 
+  // load random users
   const loadUsers = async() => {
-    // setLoading(true)
     try {    
       const res = await fetch(`https://randomuser.me/api/?results=${results}`)
   
@@ -45,10 +49,12 @@ export default function UsersList({ handleModal }) {
     }
   }
 
+  // call modal (passing data)
   const toggleModal = (e, user) => {
     handleModal(e, user)
   }
 
+  // handle search in input
   const handleSearch = (e) => {
     e.preventDefault()
     
@@ -62,6 +68,7 @@ export default function UsersList({ handleModal }) {
 
   }
 
+  // infinity scrool
   const handleScroll = (e) => {
     const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight
 
@@ -73,13 +80,17 @@ export default function UsersList({ handleModal }) {
   
   return (
     <>
+      {/* component search bar */}
       <SearchBar
         handleSearch={handleSearch}
         value={filteredUsers}
       />
+
+      {/* infinity scrool */}
       <ul onScroll={handleScroll}>
         {
           filteredUsers && filteredUsers.map((user) => (
+            // user list item
             <li key={user.login.uuid}>
               <div className={styles.card} onClick={(e) => toggleModal(e, user)}>
                 <div className={styles.logo}>
@@ -110,6 +121,7 @@ export default function UsersList({ handleModal }) {
             </li>
           ))
         }
+        {/* spinner */}
         {spinner && <><Spinner text={"Carregando Mais"}/></>}
       </ul>
     </>
