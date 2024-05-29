@@ -20,8 +20,7 @@ export default function Modal({ closeModal, children }) {
   // handle click outside modal
   const handleClickOutside = (event) => {
     event.preventDefault()
-    console.log(modalRef.current)
-    console.log(event)
+    
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       closeModal(false);
     }
