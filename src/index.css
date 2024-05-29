@@ -8,6 +8,7 @@
 main {
   width: 100%;
   height: 100vh;
+  padding: 30px 5px;
 }
 
 ul {
@@ -27,4 +28,16 @@ a {
 html {
   background-color: #22d3ee;
   color: #0a0a0a;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader img {
+  width: 200px;
+  height: 200px;
 }

@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.userName {
+  text-align: center;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.male {
+  color: blue;
+}
+
+.female {
+  color: red;
+}
+
+
+.cake {
+  color: brown;
+}
+
+.mail {
+  color: blueviolet;
+}
+
+.location {
+  color: tomato;
+}
+
+.idCard {
+  color:darkblue;
+}

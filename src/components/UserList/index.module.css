@@ -1,0 +1,50 @@
+ul {
+  overflow-y: scroll;
+  height: 90vh;
+  padding: 15px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15)
+}
+
+.userBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.male {
+  color: blue;
+}
+
+.female {
+  color: red;
+}
+
+.gender {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.birthday {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cake {
+  color: brown;
+}

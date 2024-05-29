@@ -1,8 +1,40 @@
-# React + Vite
+# Nova Users
+#### Visão Geral
+Bem vindo ao Nova Users, aplicativo de consultas de usuários. Suas funcionalidades são:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Consulta de usuários
+- Barra de Pesquisa de usuários
+- Modal com detalhes dos usuários
+- Pesquisa com Infinity Scrooling
 
-Currently, two official plugins are available:
+Acesse: [Nova Users](nova-users.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+#### Tecnologias
+- React
+- React Routes
+- Vite
+
+---
+#### Rotas
+- /
+- /users
+
+---
+#### Páginas
+- Home: Botão para listar usuários
+- Users: Barra de Pesquisa e Listagem de Usuários
+
+---
+#### Componentes
+- Card
+- Modal
+- SearchBar
+- Spinner
+- UsersList
+
+---
+#### Como Rodar o Projeto (local)
+- git clone https://www.github.com/dezoliveira/nova-users
+- npm install
+- npm run dev
