@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-y: hidden;
+}
+
 html {
   background-color: #22d3ee;
   color: #0a0a0a;
