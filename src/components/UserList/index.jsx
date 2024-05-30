@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCakeCandles, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 
 // utils
-import formatDate from "../../utils"
+import { utils } from '../../utils'
 
 // react
 import { useEffect, useState } from "react"
@@ -20,6 +20,8 @@ export default function UsersList({ handleModal }) {
   const [filteredUsers, setFilteredUsers] = useState([])
   const [results, setResults] = useState(20)
   const [spinner, setSpinner] = useState(false)
+
+  const { formatDate, iconPalette } = utils()
 
   useEffect(() => {
     loadUsers()
@@ -104,13 +106,21 @@ export default function UsersList({ handleModal }) {
                   <div className={styles.userInfo}>
                     <span className={styles.gender}>
                       {user.gender == "male" ?
-                        <FontAwesomeIcon icon={faMars} className={styles.male} />
-                      : <FontAwesomeIcon icon={faVenus} className={styles.female}/>
+                        <FontAwesomeIcon
+                          icon={faMars}
+                          color={iconPalette("mars")}
+                        />
+                      : <FontAwesomeIcon
+                          icon={faVenus}
+                          color={iconPalette("venus")}/>
                       }
                       <p>{user.gender}</p>
                     </span>
                     <span className={styles.birthday}>
-                      <FontAwesomeIcon icon={faCakeCandles} className={styles.cake}/>
+                      <FontAwesomeIcon
+                        icon={faCakeCandles}
+                        color={iconPalette("cake")}
+                      />
                       <p>{formatDate(user.dob.date)}</p>
                     </span>
                   </div>

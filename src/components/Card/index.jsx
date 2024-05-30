@@ -15,13 +15,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 // utils
-import formatDate from '../../utils'
+import { utils }  from '../../utils'
 
 // react
 import { useState } from 'react'
 
 export default function Card({ data }) {
   const [user, setUser] = useState(data)
+  const { formatDate, iconPalette } = utils()
 
   return (
     <div className={styles.card}>
@@ -42,7 +43,10 @@ export default function Card({ data }) {
 
       {/* mail */}
       <span className={styles.iconBox}>
-        <FontAwesomeIcon icon={faEnvelopeCircleCheck} className={styles.mail}/>
+        <FontAwesomeIcon
+          icon={faEnvelopeCircleCheck}
+          color={iconPalette("mail")}
+        />
         <small>{user.email}</small>
       </span>
 
@@ -50,13 +54,21 @@ export default function Card({ data }) {
       <div className={styles.userInfo}>
         <span className={styles.iconBox}>
           {user.gender == "male" ?
-            <FontAwesomeIcon icon={faMars}  />
-          : <FontAwesomeIcon icon={faVenus} />
+            <FontAwesomeIcon
+              icon={faMars}
+              color={iconPalette("mars")}
+            />
+          : <FontAwesomeIcon
+              icon={faVenus}
+              color={iconPalette("venus")}
+            />
           }
           <p>{user.gender}</p>
         </span>
         <span className={styles.iconBox}>
-          <FontAwesomeIcon icon={faCakeCandles} className={styles.cake}/>
+          <FontAwesomeIcon
+            icon={faCakeCandles}
+            color={iconPalette("cake")}/>
           <p>{formatDate(user.dob.date)}</p>
         </span>
       </div>
@@ -64,7 +76,10 @@ export default function Card({ data }) {
       {/* phone and flag */}
       <div className={styles.userInfo}>
         <span className={styles.iconBox}>
-          <FontAwesomeIcon icon={faMobile} />
+          <FontAwesomeIcon
+            icon={faMobile}
+            color={iconPalette("mobile")}
+          />
           <p>{user.phone}</p>
         </span>
         <span className={styles.iconBox}>
@@ -75,7 +90,9 @@ export default function Card({ data }) {
 
       {/* street */}
       <span className={styles.iconBox}>
-        <FontAwesomeIcon icon={faLocation} className={styles.location}/>
+        <FontAwesomeIcon
+          icon={faLocation}
+          color={iconPalette("location")}/>
         <p>
           {user.location.street.name}, {user.location.street.number}
         </p>
@@ -83,7 +100,9 @@ export default function Card({ data }) {
 
       {/* id */}
       <span className={styles.iconBox}>
-        <FontAwesomeIcon icon={faAddressCard} className={styles.idCard}/>
+        <FontAwesomeIcon
+          icon={faAddressCard}
+          color={iconPalette("idCard")}/>
         <p><b>{user.id.name}: </b>{user.id.value ? user.id.value : "N/A"}</p>
       </span>
     </div>

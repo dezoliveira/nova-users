@@ -24,27 +24,3 @@ ul {
   justify-content: space-between;
   gap: 15px;
 }
-
-.male {
-  color: blue;
-}
-
-.female {
-  color: red;
-}
-
-.gender {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.birthday {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.cake {
-  color: brown;
-}
