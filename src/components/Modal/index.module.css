@@ -36,3 +36,17 @@
   top: 15px;
   right: 15px;
 }
+
+.closeButton:hover {
+  cursor: pointer;
+  opacity: .9;
+}
+
+/* Big boi Monitors */
+@media (min-width: 1281px) {
+  .modal {
+    width: 20%;
+    height: 80%;
+    padding: 65px 25px;
+  }
+}

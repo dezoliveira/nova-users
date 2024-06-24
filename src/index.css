@@ -48,3 +48,70 @@ a {
   width: 200px;
   height: 200px;
 }
+
+ul::-webkit-scrollbar {
+  /* Customize the scrollbar width */
+  background-color: #22d3ee;
+}
+
+ul::-webkit-scrollbar-track {
+  /* Customize the scrollbar track */
+  background-color:#0a0a0a;
+  border-radius: 5px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  /* Customize the scrollbar thumb */
+  background-color:blue;
+  border-radius: 5px;
+}
+
+
+/* Mobile Devices */
+/* @media (max-width: 480px) {
+  foo > bar {
+          
+  }
+} */
+      
+/* Low resolution Tablets and iPads */
+/* @media (min-width: 481px) and (max-width: 767px) {
+  foo > bar {
+      
+  }
+} */
+      
+/* Tablets iPads (Portrait) */
+/* @media (min-width: 768px) and (max-width: 1024px){
+  foo > bar {
+      
+  }
+} */
+  
+/* Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ul {
+    width: 100vh;
+  }
+}
+  
+/* Big boi Monitors */
+@media (min-width: 1281px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ul {
+    width: 100vh;
+  }
+}
