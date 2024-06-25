@@ -65,28 +65,20 @@ ul::-webkit-scrollbar-thumb {
   background-color:blue;
   border-radius: 5px;
 }
-
-
-/* Mobile Devices */
-/* @media (max-width: 480px) {
-  foo > bar {
-          
-  }
-} */
-      
-/* Low resolution Tablets and iPads */
-/* @media (min-width: 481px) and (max-width: 767px) {
-  foo > bar {
-      
-  }
-} */
       
 /* Tablets iPads (Portrait) */
-/* @media (min-width: 768px) and (max-width: 1024px){
-  foo > bar {
-      
+@media (min-width: 768px) and (max-width: 1024px){
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-} */
+
+  ul {
+    width: 60vh;
+  }
+}
   
 /* Laptops and Desktops */
 @media (min-width: 1025px) and (max-width: 1280px){
